@@ -10,13 +10,74 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyContacts/ListContactViewController.swift"
-            timestampString = "492761401.514017"
+            timestampString = "493364845.942946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyContacts/ContactCell.swift"
+            timestampString = "492800704.664227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyContacts.ContactCell.__deallocating_deinit"
+                  moduleName = "MyContacts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/moises/ProjectsIOS/MyContacts/MyContacts/ContactCell.swift"
+                  timestampString = "493364160.805501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyContacts.ContactCell.init (style : __C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; MyContacts.ContactCell"
+                  moduleName = "MyContacts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/moises/ProjectsIOS/MyContacts/MyContacts/ContactCell.swift"
+                  timestampString = "493364160.805644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyContacts.ContactCell.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyContacts.ContactCell&gt;"
+                  moduleName = "MyContacts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/moises/ProjectsIOS/MyContacts/MyContacts/ContactCell.swift"
+                  timestampString = "493364160.805765"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

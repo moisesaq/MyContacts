@@ -1,20 +1,18 @@
 //
-//  CustomCellTableViewCell.swift
+//  ContactCell.swift
 //  MyContacts
 //
-//  Created by Moises on 8/6/16.
+//  Created by Moises on 8/13/16.
 //  Copyright © 2016 Moises. All rights reserved.
 //
 
 import UIKit
 
-class CustomCellTableViewCell: UITableViewCell{
+class ContactCell: UITableViewCell {
 
-    @IBOutlet weak var nameContact: UILabel!
-    @IBOutlet weak var phoneContact: UILabel!
-    @IBOutlet weak var emailContact: UILabel!
-    
     @IBOutlet weak var imageContact: UIImageView!
+    @IBOutlet weak var nameContact: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

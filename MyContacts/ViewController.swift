@@ -11,9 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var save: UIButton!
     
-    var listContacts = [String]()
+    var listContacts = [Contact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +30,28 @@ class ViewController: UIViewController {
 
 
     @IBAction func saveContact(sender: AnyObject) {
-        let c = name.text!
-        if(c != ""){
-            addContact(c)
+        let textName = name.text!
+        let textLastName = lastName.text!
+        let numberPhone = phone.text!
+        let textEmail = emailTF.text!
+        if(textName != "" && textLastName != "" && numberPhone != "" && textEmail != ""){
+            let contact = Contact(name: textName, lastName: textLastName, phone: Int(numberPhone)!, email: textEmail, pathImage: "bart")
+            addContact(contact)
+            clearField()
         }else{
             showMessage("Name is empty")
         }
     }
     
-    func addContact(contact: String){
+    func clearField(){
+        name.text = ""
+        lastName.text = ""
+        phone.text = ""
+        emailTF.text = ""
+    }
+    
+    func addContact(contact: Contact){
+        
         listContacts.append(contact)
         print(listContacts)
     }
@@ -49,8 +65,13 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let listContactController: ListContactController = segue.destinationViewController as! ListContactController
-        listContactController.listData = listContacts
+        if(segue.identifier == "toListContact"){
+            let listContactController: ListContactController = segue.destinationViewController as! ListContactController
+            listContactController.listData = listContacts
+        }else if(segue.identifier == "listTest"){
+            
+        }
+        
     }
 }
 

@@ -11,7 +11,7 @@ import UIKit
 class ListContactController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var contactTableView: UITableView!
-    var listData = [String]()
+    var listData = [Contact]()
     //var listData: [String] = ["data1", "data2"]
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,9 +34,11 @@ class ListContactController: UIViewController, UITableViewDelegate, UITableViewD
         if(cell.nameContact == nil){
             print("cell name nulllllll")
         }
-        cell.nameContact?.text = listData[indexPath.item]
-        cell.emailContact?.text = "test@test.com"
-        cell.phoneContact?.text = "12345"
+        let contact = listData[indexPath.item];
+        cell.imageContact.image = UIImage(named: contact.pathImage)
+        cell.nameContact?.text = contact.getFullName()
+        cell.phoneContact?.text = String(contact.phone)
+        cell.emailContact?.text = contact.email
         return cell
     }
     

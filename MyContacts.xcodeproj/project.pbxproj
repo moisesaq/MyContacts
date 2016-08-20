@@ -15,6 +15,10 @@
 		802031AC1D55A667001A5AAB /* MyContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802031AB1D55A667001A5AAB /* MyContactsTests.swift */; };
 		802031B71D55A667001A5AAB /* MyContactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802031B61D55A667001A5AAB /* MyContactsUITests.swift */; };
 		802031C51D55AE37001A5AAB /* ListContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802031C41D55AE37001A5AAB /* ListContactViewController.swift */; };
+		805632851D5F8AAC00170E0C /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805632841D5F8AAC00170E0C /* ContactCell.swift */; };
+		805632871D5F8B2800170E0C /* UIContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805632861D5F8B2800170E0C /* UIContactCell.xib */; };
+		805632891D5F8DEA00170E0C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805632881D5F8DEA00170E0C /* ListViewController.swift */; };
+		80C77DC11D681B4400638294 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C77DC01D681B4400638294 /* Contact.swift */; };
 		80D6BE4E1D566C9E00AAAD01 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6BE4D1D566C9E00AAAD01 /* CustomCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,10 @@
 		802031B61D55A667001A5AAB /* MyContactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyContactsUITests.swift; sourceTree = "<group>"; };
 		802031B81D55A667001A5AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		802031C41D55AE37001A5AAB /* ListContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContactViewController.swift; sourceTree = "<group>"; };
+		805632841D5F8AAC00170E0C /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		805632861D5F8B2800170E0C /* UIContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIContactCell.xib; sourceTree = "<group>"; };
+		805632881D5F8DEA00170E0C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		80C77DC01D681B4400638294 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		80D6BE4D1D566C9E00AAAD01 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,11 +112,15 @@
 				802031961D55A667001A5AAB /* AppDelegate.swift */,
 				802031981D55A667001A5AAB /* ViewController.swift */,
 				8020319A1D55A667001A5AAB /* Main.storyboard */,
+				805632841D5F8AAC00170E0C /* ContactCell.swift */,
 				8020319D1D55A667001A5AAB /* Assets.xcassets */,
 				8020319F1D55A667001A5AAB /* LaunchScreen.storyboard */,
 				802031A21D55A667001A5AAB /* Info.plist */,
 				802031C41D55AE37001A5AAB /* ListContactViewController.swift */,
 				80D6BE4D1D566C9E00AAAD01 /* CustomCellTableViewCell.swift */,
+				805632861D5F8B2800170E0C /* UIContactCell.xib */,
+				805632881D5F8DEA00170E0C /* ListViewController.swift */,
+				80C77DC01D681B4400638294 /* Contact.swift */,
 			);
 			path = MyContacts;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805632871D5F8B2800170E0C /* UIContactCell.xib in Resources */,
 				802031A11D55A667001A5AAB /* LaunchScreen.storyboard in Resources */,
 				8020319E1D55A667001A5AAB /* Assets.xcassets in Resources */,
 				8020319C1D55A667001A5AAB /* Main.storyboard in Resources */,
@@ -262,10 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				805632851D5F8AAC00170E0C /* ContactCell.swift in Sources */,
 				802031C51D55AE37001A5AAB /* ListContactViewController.swift in Sources */,
+				805632891D5F8DEA00170E0C /* ListViewController.swift in Sources */,
 				802031991D55A667001A5AAB /* ViewController.swift in Sources */,
 				80D6BE4E1D566C9E00AAAD01 /* CustomCellTableViewCell.swift in Sources */,
 				802031971D55A667001A5AAB /* AppDelegate.swift in Sources */,
+				80C77DC11D681B4400638294 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
