@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
+    
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
 
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -17,27 +21,44 @@ class ViewController: UIViewController {
     @IBOutlet weak var save: UIButton!
     
     var listContacts = [Contact]()
+    var itemReceived = "empty"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print("Item received \(itemReceived)")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
+    
     @IBAction func saveContact(sender: AnyObject) {
         let textName = name.text!
         let textLastName = lastName.text!
         let numberPhone = phone.text!
         let textEmail = emailTF.text!
         if(textName != "" && textLastName != "" && numberPhone != "" && textEmail != ""){
+            
             let contact = Contact(name: textName, lastName: textLastName, phone: Int(numberPhone)!, email: textEmail, pathImage: "bart")
-            addContact(contact)
-            clearField()
+            
+            let context: NSManagedObjectContext = delegate.managedObjectContext
+            let newContact = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: context)
+            newContact.setValue(textName, forKey: "name")
+            newContact.setValue(textLastName, forKey: "lastname")
+            newContact.setValue(Int(numberPhone)!, forKey: "phone")
+            newContact.setValue(textEmail, forKey: "email")
+            
+            do{
+                try context.save()
+                addContact(contact)
+                clearField()
+            }catch{
+                print("No saved")
+            }
+            
+            
         }else{
             showMessage("Name is empty")
         }
@@ -51,7 +72,6 @@ class ViewController: UIViewController {
     }
     
     func addContact(contact: Contact){
-        
         listContacts.append(contact)
         print(listContacts)
     }

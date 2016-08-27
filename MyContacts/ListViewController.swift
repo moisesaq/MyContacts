@@ -13,6 +13,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = ["homero", "bart"]
     
+    var itemSelected = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Row \(indexPath) selected!")
         print("Image selected: \(tableData[indexPath.item])")
+        itemSelected = tableData[indexPath.item]
         //dismissViewControllerAnimated(<#T##flag: Bool##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
     }
     
@@ -41,6 +44,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.nameContact.text = tableData[indexPath.row]
         cell.imageContact.image = UIImage(named: tableData[indexPath.row])
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "toListTest"){
+            let viewController: ViewController = segue.destinationViewController as! ViewController
+            viewController.itemReceived = itemSelected
+            print("Send item \(viewController.itemReceived)")
+        }
+        
     }
     /*
     // MARK: - Navigation
