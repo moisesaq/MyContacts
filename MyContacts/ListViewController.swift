@@ -10,6 +10,8 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var tableView: UITableView!
     var tableData: [String] = ["homero", "bart"]
     

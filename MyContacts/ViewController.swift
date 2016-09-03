@@ -49,6 +49,7 @@ class ViewController: UIViewController {
             newContact.setValue(textLastName, forKey: "lastname")
             newContact.setValue(Int(numberPhone)!, forKey: "phone")
             newContact.setValue(textEmail, forKey: "email")
+            newContact.setValue("bart", forKey: "pathImage")
             
             do{
                 try context.save()

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ListContactController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    
+    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var contactTableView: UITableView!
     var listData = [Contact]()
@@ -45,7 +48,7 @@ class ListContactController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         print(listData)
-        
+        loadData()
         //contactTableView.registerClass(CustomCellTableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
         //contactTableView.registerNib(UINib(nibName: "CustomCellTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
@@ -53,5 +56,33 @@ class ListContactController: UIViewController, UITableViewDelegate, UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadData(){
+        do{
+            let request = NSFetchRequest(entityName: "Contact")
+            let context: NSManagedObjectContext = delegate.managedObjectContext
+            let results = try context.executeFetchRequest(request)
+            if(results.count > 0){
+                for res in results as! [NSManagedObject]{
+                    let phone = String(res.valueForKey("phone"))
+                    print(res.valueForKey("name") as? String)
+                    print(res.valueForKey("lastname"))
+                    print(phone)
+                    print(res.valueForKey("email"))
+                    print(res.valueForKey("pathImage"))
+                    
+                    let contact = Contact(name: res.valueForKey("name") as! String,
+                                          lastName: String(res.valueForKey("lastname")),
+                                          phone: 123,
+                                          email: String(res.valueForKey("email")),
+                                          pathImage: String(res.valueForKey("pathImage")))
+                    listData.append(contact)
+                }
+            }
+        }catch{
+            print("Error in request data base")
+        }
+        
     }
 }
