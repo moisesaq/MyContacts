@@ -11,17 +11,17 @@ import CoreData
 
 class ListContactController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var contactTableView: UITableView!
     var listData = [Contact]()
     //var listData: [String] = ["data1", "data2"]
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listData.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /*let row = indexPath.row
         let section = indexPath
          
@@ -29,11 +29,11 @@ class ListContactController: UIViewController, UITableViewDelegate, UITableViewD
         print("section \(section)")*/
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         /*let cell: UITableViewCell = self.contactTableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         cell.textLabel?.text = listData[indexPath.row]*/
         
-        let cell: CustomCellTableViewCell = self.contactTableView.dequeueReusableCellWithIdentifier("cell") as! CustomCellTableViewCell
+        let cell: CustomCellTableViewCell = self.contactTableView.dequeueReusableCell(withIdentifier: "cell") as! CustomCellTableViewCell
         if(cell.nameContact == nil){
             print("cell name nulllllll")
         }
@@ -60,23 +60,19 @@ class ListContactController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadData(){
         do{
-            let request = NSFetchRequest(entityName: "Contact")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Contact")
             let context: NSManagedObjectContext = delegate.managedObjectContext
-            let results = try context.executeFetchRequest(request)
+            let results = try context.fetch(request)
             if(results.count > 0){
                 for res in results as! [NSManagedObject]{
-                    let phone = String(res.valueForKey("phone"))
-                    print(res.valueForKey("name") as? String)
-                    print(res.valueForKey("lastname"))
-                    print(phone)
-                    print(res.valueForKey("email"))
-                    print(res.valueForKey("pathImage"))
+                    //let phone = String(describing: res.value(forKey: "phone"))
+                    print(res)
                     
-                    let contact = Contact(name: res.valueForKey("name") as! String,
-                                          lastName: String(res.valueForKey("lastname")),
+                    let contact = Contact(name: res.value(forKey: "name") as! String,
+                                          lastName: String(describing: res.value(forKey: "lastname")),
                                           phone: 123,
-                                          email: String(res.valueForKey("email")),
-                                          pathImage: String(res.valueForKey("pathImage")))
+                                          email: String(describing: res.value(forKey: "email")),
+                                          pathImage: String(describing: res.value(forKey: "pathImage")))
                     listData.append(contact)
                 }
             }

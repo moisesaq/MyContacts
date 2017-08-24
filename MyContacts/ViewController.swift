@@ -11,7 +11,7 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    let delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
 
     @IBOutlet weak var name: UITextField!
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func saveContact(sender: AnyObject) {
+    @IBAction func saveContact(_ sender: AnyObject) {
         let textName = name.text!
         let textLastName = lastName.text!
         let numberPhone = phone.text!
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             let contact = Contact(name: textName, lastName: textLastName, phone: Int(numberPhone)!, email: textEmail, pathImage: "bart")
             
             let context: NSManagedObjectContext = delegate.managedObjectContext
-            let newContact = NSEntityDescription.insertNewObjectForEntityForName("Contact", inManagedObjectContext: context)
+            let newContact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: context)
             newContact.setValue(textName, forKey: "name")
             newContact.setValue(textLastName, forKey: "lastname")
             newContact.setValue(Int(numberPhone)!, forKey: "phone")
@@ -72,22 +72,22 @@ class ViewController: UIViewController {
         emailTF.text = ""
     }
     
-    func addContact(contact: Contact){
+    func addContact(_ contact: Contact){
         listContacts.append(contact)
         print(listContacts)
     }
     
-    func showMessage(message: String){
-        let alert = UIAlertController(title: "Message", message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let action = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil)
+    func showMessage(_ message: String){
+        let alert = UIAlertController(title: "Message", message: message, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let action = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil)
         
         alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil);
+        self.present(alert, animated: true, completion: nil);
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toListContact"){
-            let listContactController: ListContactController = segue.destinationViewController as! ListContactController
+            let listContactController: ListContactController = segue.destination as! ListContactController
             listContactController.listData = listContacts
         }else if(segue.identifier == "listTest"){
             
